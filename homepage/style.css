@@ -13525,3 +13525,16 @@ body:not(.no-transition) #wrapper,
 	padding:0!important
 }
 
+.panel-green{
+	border-color: #1abc9c;
+	border-radius: 0;
+}
+.panel-green > .panel-heading{
+	background: #1abc9c;
+	color: white;
+	border-radius: 0;
+}
+.panel-green  a{
+	display: block;
+	width: 100%;
+}
