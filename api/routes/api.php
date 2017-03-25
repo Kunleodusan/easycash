@@ -19,6 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix'=>'v1'],function (){
 
+    Route::get('/',function(){
+        $data=file_get_contents(asset('api.json'));
+        return $data;
+    });
 
     Route::group(['prefix'=>'test'],function () {
 
@@ -53,11 +57,46 @@ Route::group(['prefix'=>'v1'],function (){
     });
 
     Route::group(['prefix'=>'task'],function () {
+        #add task
+        Route::post('/','TaskController@addTask');
+        #cancel task
+        Route::get('/{id}','TaskController@cancelTask');
+        #verify completed task.
+        Route::post('/','TaskController@verifyTask');
+        #task log.
+        Route::get('/','TaskController@taskLog');
+    });
+
+    Route::group(['prefix'=>'card'],function () {
+
+        #add Card
+        Route::post('/', 'CardController@addCard');
+        #delete Card
+        Route::get('{id}/delete', 'CardController@deleteCard');
 
     });
 
     Route::group(['prefix'=>'question'],function () {
+        #add Question
+        Route::post('/','QuestionController@addQuestion');
 
+        #get all question
+        Route::get('/','QuestionController@getAllQuestion');
+
+        #add Question options
+        Route::post('/option','QuestionController@addQuestionOptions');
+
+        #delete question option.
+        Route::get('/option/{id}/delete','QuestionController@deleteQuestionOption');
+
+        #get question
+        Route::get('/{id}','QuestionController@getQuestion');
+
+        #delete question
+        Route::get('/{id}/delete','QuestionController@deleteQuestion');
+
+        #get question responses
+        Route::get('/{id}/response','QuestionController@questionResponse');
     });
 
 });
