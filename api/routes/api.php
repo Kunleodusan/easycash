@@ -22,6 +22,7 @@ Route::group(['prefix'=>'v1'],function (){
 
     Route::group(['prefix'=>'test'],function () {
 
+        Route::get('/','TestController@test');
         Route::get('success','TestController@success');
         Route::get('error','TestController@error');
 
