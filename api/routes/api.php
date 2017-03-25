@@ -41,8 +41,8 @@ Route::group(['prefix'=>'v1'],function (){
         Route::get('/','BankController@getAll');
         Route::get('{id}','BankController@get');
         Route::post('{id}','BankController@update');
-
     });
+
     Route::group(['prefix'=>'customer'],function () {
         Route::post('register','CustomerController@create');
         Route::post('/login','CustomerController@auth');
@@ -54,7 +54,9 @@ Route::group(['prefix'=>'v1'],function (){
     Route::group(['prefix'=>'task'],function () {
 
     });
+
     Route::group(['prefix'=>'question'],function () {
 
     });
+
 });

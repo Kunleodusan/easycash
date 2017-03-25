@@ -1,7 +1,8 @@
 {
   "name": "EasyCash API",
   "version": 1.0,
-  "baseUrl":"http://workhost/easycash/api/public/api/v1/",
+  "baseUrl2":"http://workhost/easycash/api/public/api/v1/",
+  "baseUrl":"http://api.recodenigeria.tk/api/v1/",
   "clientId":"web-007",
   "clientSecret":"938CAAB3E20C9F7B7A4E744DEA51845F98595A349BAF855562E1AA2D96C9C56B",
   "updates":{
