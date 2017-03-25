@@ -1,7 +1,9 @@
 package com.transformers.easycash.easycash;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -59,6 +61,7 @@ public class login extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.i(RESPONSELOG, response.toString());
+
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -67,6 +70,7 @@ public class login extends AppCompatActivity {
                     }
                 });
                 queue.add(jsonObjectRequest);
+
 
             }
         });
