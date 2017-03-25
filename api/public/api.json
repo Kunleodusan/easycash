@@ -1,0 +1,332 @@
+{
+  "name": "EasyCash API",
+  "version": 1.0,
+  "baseUrl":"http://workhost/easycash/api/public/api/v1/",
+  "clientId":"web-007",
+  "clientSecret":"938CAAB3E20C9F7B7A4E744DEA51845F98595A349BAF855562E1AA2D96C9C56B",
+  "updates":{
+    "8th March, 2017":[
+      "Customer[Register, Login,Profile, update Profile, get profile]",
+      "Admin[Login,Profile, update Profile, get profile]",
+      "Bank[Login,Profile, update Profile, get profile]"
+    ],
+    "6th March, 2017":[
+      "old"
+    ]
+  },
+  "data":{
+    "test": {
+      "name": "Test Endpoint",
+      "endpoints":
+      {
+
+        "testPoint":{
+          "url":"test",
+          "name":"Test Endpoint",
+          "Description":"Test Endpoint to see parameters sent, returns headers and params",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "name":"text",
+            "email":"text"
+          }
+        }
+
+      }
+    },
+    "token": {
+      "name": "Token & Auth",
+      "endpoints":
+      {
+        "tokenRefresh":{
+          "url":"token/refresh",
+          "name":"Refresh Token",
+          "Description":"Refresh Token for a User",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "refresh_key":"text",
+            "access_token":"text"
+          }
+        },
+        "auth":{
+          "url":"auth",
+          "name":"Authenticate User",
+          "Description":"Enter email address to authenticate any user [admin, coach,student]",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "email":"text",
+            "phone":"text",
+            "password":"password"
+          }
+        },
+        "logout":{
+          "url":"logout",
+          "name":"Logout A User",
+          "Description":"Enter user_id [admin,employer,coach,student] of any user type and access_token to logout the user.",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "access_token":"password"
+          }
+        }
+      }
+    },
+    "client": {
+      "name": "Clients for API",
+      "endpoints":
+      {
+        "registerClient":{
+          "url":"client",
+          "name":"Register A New Client",
+          "Description":"Authorize A new Client to the System.",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "name":"text",
+            "email":"text",
+            "access_token":"text"
+          }
+        },
+        "getAllClients":{
+          "url":"client",
+          "name":"Get List of Client",
+          "Description":"Get List of Registered Clients in the System.",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "access_token":"text"
+          }
+        },
+        "getClient":{
+          "url":"client/:id",
+          "name":"Get Client",
+          "Description":"Get a Client in the System.",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "access_token":"text"
+          },
+          "paths":{
+            "id":"text"
+          }
+        },
+        "updateClient":{
+          "url":"client/:id",
+          "name":"Update Client",
+          "Description":"Update client info.",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "name":"text",
+            "email":"text",
+            "access_token":"text"
+          },
+          "paths":{
+            "id":"text"
+          }
+        },
+        "deleteClient":{
+          "url":"client/:id/delete",
+          "name":"Delete Client",
+          "Description":"Delete client info.",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "access_token":"text"
+          },
+          "paths":{
+            "id":"text"
+          }
+        }
+
+      }
+    },
+    "customer": {
+      "name": "Customer",
+      "endpoints":
+      {
+        "register":{
+          "url":"customer/register",
+          "name":"Register customer",
+          "Description":"Register a new student",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "name": "text",
+            "email":"text",
+            "phone":"text",
+            "password":"text"
+          }
+        },
+        "login":{
+          "url":"customer/login",
+          "name":"Login customer",
+          "Description":"Login a customer",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "email":"text",
+            "password":"text"
+          }
+        },
+        "update":{
+          "url":"customer/:id",
+          "name":"Update customer",
+          "Description":"customer to update profile information.",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "name": "text",
+            "email":"text",
+            "phone":"text",
+            "access_token":"text"
+          },
+          "paths":{
+            "id":"text"
+          }
+        },
+        "get":{
+          "url":"customer/:id",
+          "name":"Get customer Information",
+          "Description":"Get a customer in the System.",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "access_token":"text"
+          },
+          "paths":{
+            "id":"text"
+          }
+        },
+        "getAllCustomers":{
+          "url":"customer",
+          "name":"Get all customers",
+          "Description":"Get all customers in the System.",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "page":"text",
+            "access_token":"text"
+          }
+        }
+      }
+    },
+    "bank": {
+      "name": "Bank",
+      "endpoints":
+      {
+        "login":{
+          "url":"bank/login",
+          "name":"Login Bank",
+          "Description":"Login a bank",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "email":"text",
+            "password":"text"
+          }
+        },
+        "update":{
+          "url":"bank/:id",
+          "name":"Update bank",
+          "Description":"bank to update profile information.",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "name": "text",
+            "email":"text",
+            "phone":"text",
+            "access_token":"text"
+          },
+          "paths":{
+            "id":"text"
+          }
+        },
+        "get":{
+          "url":"bank/:id",
+          "name":"Get bank Information",
+          "Description":"Get a bank in the System.",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "access_token":"text"
+          },
+          "paths":{
+            "id":"text"
+          }
+        },
+        "getAll":{
+          "url":"bank",
+          "name":"Get all bank",
+          "Description":"Get all bank in the System.",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "page":"text",
+            "access_token":"text"
+          }
+        }
+      }
+    },
+    "admin": {
+      "name": "Admin",
+      "endpoints":
+      {
+        "login":{
+          "url":"admin/login",
+          "name":"Login admin",
+          "Description":"Login an admin",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "email":"text",
+            "password":"text"
+          }
+        },
+        "update":{
+          "url":"admin/:id",
+          "name":"Update admin",
+          "Description":"admin to update profile information.",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "name": "text",
+            "email":"text",
+            "phone":"text",
+            "access_token":"text"
+          },
+          "paths":{
+            "id":"text"
+          }
+        },
+        "get":{
+          "url":"admin/:id",
+          "name":"Get admin Information",
+          "Description":"Get an admin in the System.",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "access_token":"text"
+          },
+          "paths":{
+            "id":"text"
+          }
+        },
+        "getAll":{
+          "url":"admin",
+          "name":"Get all admin",
+          "Description":"Get all admin in the System.",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "page":"text",
+            "access_token":"text"
+          }
+        }
+      }
+    }
+  }
+
+}
