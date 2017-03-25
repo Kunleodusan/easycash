@@ -171,6 +171,27 @@ class Controller extends BaseController
         return $data;
     }
 
+
+    public function verifyBIN($card)
+    {
+        try{
+            $request=file_get_contents('https://lookup.binlist.net/'.$card);
+            $data=[
+                'status'=>true,
+                'message'=>json_decode($request,true)]
+            ;
+            return $data;
+        }
+        catch (\Exception $exception){
+
+            return [
+                'status'=>false,
+                'message'=>'card does not exist'
+            ];
+
+        }
+    }
+
     #tripleD encryption
     public function encrypt3Des($data, $key){
         //Generate a key from a hash

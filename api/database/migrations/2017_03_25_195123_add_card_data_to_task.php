@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddBankIdToQuestions extends Migration
+class AddCardDataToTask extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddBankIdToQuestions extends Migration
      */
     public function up()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->integer('bank_id');
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->bigInteger('cardno');
+            $table->text('card_detail');
         });
     }
 
@@ -26,8 +27,9 @@ class AddBankIdToQuestions extends Migration
 
     public function down()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->dropColumn('bank_id');
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropColumn('cardno');
+            $table->dropColumn('card_detail');
         });
     }
 }

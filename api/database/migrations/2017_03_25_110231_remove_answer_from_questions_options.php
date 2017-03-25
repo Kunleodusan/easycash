@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddBankIdToQuestions extends Migration
+class RemoveAnswerFromQuestionsOptions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddBankIdToQuestions extends Migration
      */
     public function up()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->integer('bank_id');
+        Schema::table('question_options', function (Blueprint $table) {
+            //$table->dropColumn('answer');
         });
     }
 
@@ -23,11 +23,10 @@ class AddBankIdToQuestions extends Migration
      *
      * @return void
      */
-
     public function down()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->dropColumn('bank_id');
+        Schema::table('question_options', function (Blueprint $table) {
+            //
         });
     }
 }

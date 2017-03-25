@@ -1,13 +1,14 @@
 {
   "name": "EasyCash API",
   "version": 1.0,
-  "baseUrl2":"http://workhost/easycash/api/public/api/v1/",
-  "baseUrl":"http://api.recodenigeria.tk/api/v1/",
+  "baseUrl":"http://workhost/easycash/api/public/api/v1/",
+  "baseUrl2":"http://api.recodenigeria.tk/api/v1/",
   "clientId":"web-007",
   "clientSecret":"938CAAB3E20C9F7B7A4E744DEA51845F98595A349BAF855562E1AA2D96C9C56B",
   "updates":{
-    "8th March, 2017":[
-      "Customer[Register, Login,Profile, update Profile, get profile]",
+    "25th March, 2017":[
+      "Customer add & delete card",
+      "Customer [Register, Login,Profile, update Profile, get profile]",
       "Admin[Login,Profile, update Profile, get profile]",
       "Bank[Login,Profile, update Profile, get profile]"
     ],
@@ -214,6 +215,81 @@
         }
       }
     },
+    "task": {
+      "name": "Tasks",
+      "endpoints":
+      {
+        "createTask":{
+          "url":"task",
+          "name":"Create Task",
+          "Description":"Create a new transaction to complete at ATM",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "customer_id":"text",
+            "amount":"text",
+            "cardno":"text",
+            "cardid":"text",
+            "action":"text"
+          }
+        },
+        "cancelTask":{
+          "url":"task/:id/cancel",
+          "name":"Cancel Task",
+          "Description":"Cancel the transaction",
+          "method":"GET",
+          "status":false,
+          "params":{
+          },
+          "paths":{
+            "id":"text"
+          }
+        },
+        "verifyTask":{
+          "url":"task/:id/verify",
+          "name":"Verify Task",
+          "Description":"complete transaction at ATM",
+          "method":"GET",
+          "status":false,
+          "params":{
+          },
+          "paths":{
+            "id":"text"
+          }
+        }
+      }
+    },
+    "cards": {
+      "name": "Customer Cards",
+
+      "endpoints":
+      {
+        "addCard":{
+          "url":"card",
+          "name":"Add Card",
+          "Description":"Add a credit/debit card. sample card is: 4084 0840 8408 4081",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "customer_id":"text",
+            "cardno":"text",
+            "save":"number"
+          }
+        },
+        "deleteCard":{
+          "url":"card/:id/delete",
+          "name":"Delete Card",
+          "Description":"Delete a card.",
+          "method":"GET",
+          "status":false,
+          "params":{
+          },
+          "paths":{
+            "id":"text"
+          }
+        }
+      }
+    },
     "bank": {
       "name": "Bank",
       "endpoints":
@@ -262,6 +338,87 @@
           "url":"bank",
           "name":"Get all bank",
           "Description":"Get all bank in the System.",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "page":"text",
+            "access_token":"text"
+          }
+        }
+      }
+    },
+    "question": {
+      "name": "Bank Survey Questions",
+
+      "endpoints":
+      {
+        "addQuestion":{
+          "url":"question",
+          "name":"Add Question",
+          "Description":"Add a survey question.",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "bank_id":"text",
+            "title":"text"
+          }
+        },
+        "deleteQuestion":{
+          "url":"question/:id/delete",
+          "name":"Delete Question",
+          "Description":"Delete a question.",
+          "method":"GET",
+          "status":false,
+          "params":{
+          },
+          "paths":{
+            "id":"text"
+          }
+        },
+
+        "addQuestionOption":{
+          "url":"question/option",
+          "name":"Add Question Option",
+          "Description":"Add Options for a question",
+          "method":"POST",
+          "status":false,
+          "params":{
+            "option":"text",
+            "question_id":"text"
+          }
+        },
+
+        "deleteQuestionOption":{
+          "url":"question/option/:id/delete",
+          "name":"Delete question option",
+          "Description":"Delete an option for a question.",
+          "method":"GET",
+          "status":false,
+          "params":{
+          },
+          "paths":{
+            "id":"text"
+          }
+        },
+
+        "getQuestion":{
+          "url":"question/:id",
+          "name":"Get Question",
+          "Description":"Get a question in the System.",
+          "method":"GET",
+          "status":false,
+          "params":{
+            "access_token":"text"
+          },
+          "paths":{
+            "id":"text"
+          }
+        },
+
+        "getAllQuestions":{
+          "url":"question",
+          "name":"Get all questions",
+          "Description":"Get all questions in the System.",
           "method":"GET",
           "status":false,
           "params":{

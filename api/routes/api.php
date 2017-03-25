@@ -25,11 +25,9 @@ Route::group(['prefix'=>'v1'],function (){
     });
 
     Route::group(['prefix'=>'test'],function () {
-
         Route::get('/','TestController@test');
         Route::get('success','TestController@success');
         Route::get('error','TestController@error');
-
     });
 
     Route::group(['prefix'=>'admin'],function () {
@@ -60,20 +58,18 @@ Route::group(['prefix'=>'v1'],function (){
         #add task
         Route::post('/','TaskController@addTask');
         #cancel task
-        Route::get('/{id}','TaskController@cancelTask');
+        Route::get('/{id}/cancel','TaskController@cancelTask');
         #verify completed task.
-        Route::post('/','TaskController@verifyTask');
+        Route::match(['post','get'],'/{id}/verify','TaskController@verifyTask');
         #task log.
         Route::get('/','TaskController@taskLog');
     });
 
     Route::group(['prefix'=>'card'],function () {
-
         #add Card
         Route::post('/', 'CardController@addCard');
         #delete Card
         Route::get('{id}/delete', 'CardController@deleteCard');
-
     });
 
     Route::group(['prefix'=>'question'],function () {
