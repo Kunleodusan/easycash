@@ -66,6 +66,8 @@ public class signup extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.i(RESPONSELOG, response.toString());
+                        Intent it = new Intent(signup.this, DashBoardActivity.class);
+                        startActivity(it);
                     }
                 }, new Response.ErrorListener() {
                     @Override

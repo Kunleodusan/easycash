@@ -19,6 +19,16 @@ public class DashBoardActivity extends AppCompatActivity {
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         mWebView.loadUrl("http://easycash.recodenigeria.tk/dashboard.html");
+        mWebView.setWebViewClient(new MyAppWebViewClient());
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mWebView.canGoBack()) {
+            mWebView.goBack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

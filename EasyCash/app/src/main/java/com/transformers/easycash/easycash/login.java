@@ -56,11 +56,13 @@ public class login extends AppCompatActivity {
                 params.put("email", mail.getText().toString());
                 params.put("password", pswd.getText().toString());
                 JSONObject jsonBody = new JSONObject(params);
-
+                boolean status = false;
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.i(RESPONSELOG, response.toString());
+                        Intent it = new Intent(login.this, DashBoardActivity.class);
+                        startActivity(it);
 
                     }
                 }, new Response.ErrorListener() {
