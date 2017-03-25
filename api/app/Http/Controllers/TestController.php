@@ -12,6 +12,12 @@ class TestController extends Controller
         $this->successData('request',$request->all());
         return $this->response();
     }
+    public function test(Request $request)
+    {
+        $this->successData('message','Successful Test');
+        $this->successData('request',$request->all());
+        return $this->response();
+    }
 
     public function error()
     {
