@@ -2,8 +2,10 @@ package com.transformers.easycash.easycash;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -69,15 +71,16 @@ public class login extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.i(RESPONSELOG, error.toString());
+                        Snackbar.make(findViewById(R.id.loginRelativeLayout), "Invalid email or password", Snackbar.LENGTH_SHORT).show();
                     }
                 });
                 queue.add(jsonObjectRequest);
 
-
             }
         });
 
-
+        sup.setLinksClickable(true);
+        sup.setLinkTextColor(Color.BLUE);
         sup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
