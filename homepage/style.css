@@ -13538,3 +13538,21 @@ body:not(.no-transition) #wrapper,
 	display: block;
 	width: 100%;
 }
+
+.retina-logo img{
+	height: 60px !important;
+}
+@media (max-width: 768px){
+	#logo{
+		height: auto !important;
+		text-align: left !important;
+	}
+	#primary-menu-trigger{
+		top: 6px !important;
+		right: 0 !important;
+		left: auto !important;
+	}
+	.sticky-responsive-menu #header{
+		min-height: auto !important;
+	}
+}

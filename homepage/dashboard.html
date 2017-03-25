@@ -17,6 +17,8 @@
 		<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
 		<link rel="icon shortcut" href="images/favicon.png">
 		<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+		<link rel="stylesheet" href="css/components/bs-switches.css" type="text/css" />
+		<link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lt IE 9]>
 <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -83,7 +85,7 @@
 							<div class="col-sm-9">
 							<div class="row">
 								<div class="col-xs-4 col-sm-2">
-									<img src="//dummyimage.com/100x100" alt="" class="img-circle img-responsive">
+									<img src="images/icons/avatar.jpg" alt="" class="img-circle img-responsive" style="border: 2px solid #fff;padding:5px">
 								</div>
 								<div class="col-xs-8 col-sm-10 dark">
 									<h3 class="nomargin t500 ls1">Hello again, Adekunle</h3>
@@ -103,12 +105,43 @@
 				<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
-						<a href=""><div class="feature-box fbox-center fbox-bg fbox-light fbox-effect">
+						<a href="#myModal1" data-lightbox="inline"><div class="feature-box fbox-center fbox-bg fbox-light fbox-effect">
 							<div class="fbox-icon">
 								<i class="i-alt icon-trophy"></i>
 							</div>
-							<h3>Withdrawal<span class="subtitle">Perform this acrtion now</span></h3>
+							<h3>Withdrawal<span class="subtitle">Perform this action now</span></h3>
 							</div></a>
+							
+<!--								Modal 	-->
+						<div class="modal1 mfp-hide" id="myModal1">
+							<div class="block divcenter" style="background-color: #FFF; max-width: 500px;">
+								<div class="center" style="padding: 50px;">
+									<h3>Enter Details of Transcation</h3>
+									<div class="form-group">
+										<label for="">Amount</label>
+										<input type="number" class="form-control" placeholder="E.g 10,000">
+									</div>
+									<div class="form-group">
+										<label for="">Type of Account</label>
+										<select name="" id="" class="form-control">
+											<option value="">Savings</option>
+											<option value="">Current</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="">You want a reciept?</label>
+										<select name="" id="" class="form-control">
+											<option value="">Yes</option>
+											<option value="">No</option>
+										</select>
+									</div>
+									
+								</div>
+								<div class="section center nomargin" style="padding: 30px;">
+									<a href="#" class="button" onClick="$.magnificPopup.close();return false;">Submit</a>
+								</div>
+							</div>
+						</div>
 						
 						<br>
 						<h4>Choose Account</h4>
