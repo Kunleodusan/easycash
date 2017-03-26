@@ -1,7 +1,9 @@
 package com.transformers.easycash.easycash;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,10 +26,10 @@ import java.util.Map;
 public class signup extends AppCompatActivity {
     EditText mail, mophone, pswd, usrusr;
     TextView lin, sup;
-
     private static final String RESPONSELOG = "LogResponse";
 
     RequestQueue queue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +51,13 @@ public class signup extends AppCompatActivity {
         lin.setTypeface(custom_font);
         usrusr.setTypeface(custom_font);
         mail.setTypeface(custom_font);
+
+
         sup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent it = new Intent(signup.this, login.class);
+
+                //Intent it = new Intent(signup.this, login.class);
 //                startActivity(it);
                 String url = "http://api.recodenigeria.tk/api/v1/customer/register";
                 HashMap<String, String> params = new HashMap<String, String>();
@@ -73,6 +78,7 @@ public class signup extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.i(RESPONSELOG, error.toString());
+
                     }
                 });
 
@@ -82,6 +88,8 @@ public class signup extends AppCompatActivity {
 
             }
         });
+        lin.setLinksClickable(true);
+        lin.setLinkTextColor(Color.BLUE);
         lin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
