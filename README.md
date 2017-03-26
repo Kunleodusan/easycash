@@ -9,7 +9,7 @@ The technologies used to build this solution are as follows:
 3. Android 7.1.1 as compile SDK compactible with a minimum of Android 6.0 for the Android App.
 
 Respository Navigation Guide.
-There are 4 folders that comprise of the total source code each representing an aspect of EasyCash build.
+In this Repo,
 1. EasyCash folder contains all the android source code.
 2. api-docs folder contains the source code for online documentation of our web apis
 3. api folder contains the api source code itself.
