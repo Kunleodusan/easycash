@@ -2,7 +2,7 @@
  * Created by DATA INFOSEC on 1/19/2017.
  */
 
-app.controller('DashboardController',['$rootScope','$scope','$state','authService','$localStorage','toaster','dashboard',function ($rootScope,$scope,$state,authService,$localStorage,toaster,dashboard) {
+app.controller('DashboardController',['$rootScope','$scope','$state','authService','DashboardService','$localStorage','toaster','dashboard',function ($rootScope,$scope,$state,authService,DashboardService,$localStorage,toaster,dashboard) {
 
     $scope.dashboard=authService.getUser();
 
@@ -23,8 +23,17 @@ app.controller('DashboardController',['$rootScope','$scope','$state','authServic
         }
     };
 
-    $scope.deleteCard=function ($id) {
-      $scope.errorAlert('deleting card '+$id);
+    $scope.deleteCard=function ($card) {
+      $scope.notifyAlert('deleting card');
+        DashboardService.deleteCard($card.id).then(function (success) {
+
+            $scope.errorAlert('card deleted');
+            $scope.removeItem($scope.dashboard.cards,$card);
+        },function (error) {
+
+            $scope.notifyAlert('something went wrong');
+
+        });
     };
 
     $scope.logout=function () {

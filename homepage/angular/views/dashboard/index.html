@@ -67,7 +67,7 @@
 				<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
-						<a href="#myModal1" data-lightbox="inline"><div class="feature-box fbox-center fbox-bg fbox-light fbox-effect">
+						<a href="javascript:" data-target="#myModal1" data-lightbox="inline"><div class="feature-box fbox-center fbox-bg fbox-light fbox-effect">
 							<div class="fbox-icon">
 								<i class="i-alt icon-trophy"></i>
 							</div>
@@ -112,7 +112,7 @@
 
 							<div ng-repeat="card in dashboard.cards">
 								<div class="acctitle">
-									<i class="acc-closed icon-remove-circle" ng-click="deleteCard(card.id)"></i>
+									<i class="acc-closed icon-remove-circle" ng-click="deleteCard(card)"></i>
 									{{card.card_detail.message.bank.name}} {{card.card_detail.message.scheme}} ({{card.card_detail.message.number.prefix}}** **** ****)
 								</div>
 								<div class="acc_content clearfix">
@@ -134,7 +134,7 @@
 							<!-- List group -->
 							<ul class="list-group">
 								<li class="list-group-item" ng-repeat="transaction in dashboard.transactions">
-									<a href="javascript:">Cras justo odio</a>
+									<a href="javascript:">{{transaction.action}} of {{transaction.amount | currency:"₦"}} by {{transaction.updated_at | mydate}}</a>
 								</li>
 							</ul>
 						</div>

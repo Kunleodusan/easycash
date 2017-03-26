@@ -132,16 +132,26 @@ angular.module('App.Services',['ngFileUpload'
             this.userAuth=false;
         }
     }])
-    .service('CustomerService',['$localStorage','AppApi','$state','authService',function ($localStorage,AppApi,$state,authService) {
-        /*Get customers*/
-        this.getCustomers=function (meta) {
-            //console.log(authService.addAuth(meta));
+    .service('DashboardService',['$localStorage','AppApi','$state','authService',function ($localStorage,AppApi,$state,authService) {
+        /*Delete card*/
+        this.deleteCard=function (id) {
             /*Consulting API Service to make request*/
-            return AppApi.get('customer',authService.addAuth(meta));
+            return AppApi.get('card/'+id+'/delete',authService.addAuth({}));
         };
 
         this.setKYC=function (data) {
             /*Consulting API Service to make request*/
             return AppApi.post('kyc/set',authService.addAuth(data));
         };
-    }]);
+    }]).filter('mydate', function($filter){
+    return function(input)
+    {
+        if(input == null){ return ""; }
+
+        var _date = $filter('date')(new Date(input), 'h:m a, MMM dd');
+        return _date;
+        //return _date.toUpperCase();
+
+    };
+});
+;
