@@ -59,33 +59,40 @@ public class signup extends AppCompatActivity {
 
                 //Intent it = new Intent(signup.this, login.class);
 //                startActivity(it);
-                String url = "http://api.recodenigeria.tk/api/v1/customer/register";
-                HashMap<String, String> params = new HashMap<String, String>();
-                params.put("name", usrusr.getText().toString());
-                params.put("email", mail.getText().toString());
-                params.put("phone", mophone.getText().toString());
-                params.put("password", pswd.getText().toString());
-                JSONObject jsonBody = new JSONObject(params);
 
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.i(RESPONSELOG, response.toString());
-                        Intent it = new Intent(signup.this, DashBoardActivity.class);
-                        startActivity(it);
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.i(RESPONSELOG, error.toString());
+                if (mail.getText().toString().isEmpty() || mail.getText().toString() == null) {
+                    mail.setError("Email is required");
+                } else if (pswd.getText().toString().isEmpty() || pswd.getText().toString() == null) {
+                    pswd.setError("Password is required");
+                } else {
 
-                    }
-                });
+                    String url = "http://api.recodenigeria.tk/api/v1/customer/register";
+                    HashMap<String, String> params = new HashMap<String, String>();
+                    params.put("name", usrusr.getText().toString());
+                    params.put("email", mail.getText().toString());
+                    params.put("phone", mophone.getText().toString());
+                    params.put("password", pswd.getText().toString());
+                    JSONObject jsonBody = new JSONObject(params);
+
+                    JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.i(RESPONSELOG, response.toString());
+                            Intent it = new Intent(signup.this, DashBoardActivity.class);
+                            startActivity(it);
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.i(RESPONSELOG, error.toString());
+                            Snackbar.make(findViewById(R.id.signupCoordLayout), "Email or Phone number already in use", Snackbar.LENGTH_SHORT).show();
+                        }
+                    });
 
 
-                queue.add(jsonObjectRequest);
+                    queue.add(jsonObjectRequest);
 
-
+                }
             }
         });
         lin.setLinksClickable(true);

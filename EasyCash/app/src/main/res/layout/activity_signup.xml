@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/signupRelativeLayout"
+    android:id="@+id/signupCoordLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/grdnt">
@@ -36,7 +36,7 @@
                     android:layout_marginLeft="15dp"
                     android:background="#00000000"
                     android:hint="Email Address"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
                     android:letterSpacing="0.1"
                     android:textColor="#fff"
                     android:textColorHint="#555555"
@@ -129,7 +129,7 @@
                     android:layout_marginLeft="15dp"
                     android:background="#00000000"
                     android:hint="Mobile Number"
-                    android:inputType="number"
+                    android:inputType="phone"
                     android:letterSpacing="0.1"
                     android:textColor="#fff"
                     android:textColorHint="#555555"
