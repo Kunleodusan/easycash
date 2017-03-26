@@ -27,6 +27,8 @@
 		<!-- Document Title
 ============================================= -->
 		<title>EasyCash | Less time, Less Queue</title>
+		
+		<script src="https://use.fontawesome.com/42df78424b.js"></script>
 
 	</head>
 
@@ -108,9 +110,9 @@
 				<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
-						<a href="#myModal1" data-lightbox="inline"><div class="feature-box fbox-center fbox-bg fbox-light fbox-effect">
+						<a data-toggle="modal" data-target="#myModal"><div class="feature-box fbox-center fbox-bg fbox-light fbox-effect">
 							<div class="fbox-icon">
-								<i class="i-alt icon-trophy"></i>
+								<i class="fa fa-credit-card"></i>
 							</div>
 							<h3>Withdrawal<span class="subtitle">Perform this action now</span></h3>
 							</div></a>
@@ -177,8 +179,6 @@
 						
 					</div>
 					<div class="col-sm-8">
-					
-					
 						<div class="panel panel-green">
 							<!-- Default panel contents -->
 							<div class="panel-heading"><h4 class="panel-title">Latest Activities</h4></div>
@@ -237,6 +237,52 @@
 			</footer><!-- #footer end -->
 
 		</div><!-- #wrapper end -->
+		
+		
+		
+		
+		
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-body">
+					<div class="modal-content">
+						<div class="block divcenter" style="background-color: #FFF;">
+							<div class="center" style="padding: 50px;">
+								<h3>Enter Details of Transcation</h3>
+								<div class="form-group">
+									<label for="">Amount</label>
+									<input type="number" class="form-control" placeholder="E.g 10,000">
+								</div>
+								<div class="form-group">
+									<label for="">Type of Account</label>
+									<select name="" id="" class="form-control">
+										<option value="">Savings</option>
+										<option value="">Current</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="">You want a reciept?</label>
+									<select name="" id="" class="form-control">
+										<option value="">Yes</option>
+										<option value="">No</option>
+									</select>
+								</div>
+						
+							</div>
+							<div class="section center nomargin" style="padding: 30px;">
+								<a href="#" class="button" onClick="$.magnificPopup.close();return false;">Submit</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
 
 		<!-- Go To Top
 ============================================= -->
