@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/loginRelativeLayout"
+    android:id="@+id/loginCoordLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/grdnt">
@@ -36,11 +36,12 @@
                     android:layout_marginLeft="15dp"
                     android:background="#00000000"
                     android:hint="Email"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
                     android:letterSpacing="0.1"
                     android:textColor="#fff"
                     android:textColorHint="#555555"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -67,7 +68,7 @@
                     android:layout_marginLeft="15dp"
                     android:background="#00000000"
                     android:hint="Password"
-                    android:inputType="textPassword"
+                    android:inputType="text|textWebPassword"
                     android:letterSpacing="0.1"
                     android:textColor="#fff"
                     android:textColorHint="#555555"
