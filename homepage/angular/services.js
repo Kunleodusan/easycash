@@ -138,6 +138,21 @@ angular.module('App.Services',['ngFileUpload'
             /*Consulting API Service to make request*/
             return AppApi.get('card/'+id+'/delete',authService.addAuth({}));
         };
+        /*create transaction*/
+        this.createTransaction=function (data) {
+            /*Consulting API Service to make request*/
+            return AppApi.post('task',authService.addAuth(data));
+        };
+        /*create transaction*/
+        this.saveCard=function (data) {
+            /*Consulting API Service to make request*/
+            return AppApi.post('card',authService.addAuth(data));
+        };
+        /*cancel transaction*/
+        this.cancelTransaction=function (id) {
+            /*Consulting API Service to make request*/
+            return AppApi.get('task/'+id+'/cancel',authService.addAuth({}));
+        };
 
         this.setKYC=function (data) {
             /*Consulting API Service to make request*/

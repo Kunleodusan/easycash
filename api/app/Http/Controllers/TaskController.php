@@ -26,7 +26,7 @@ class TaskController extends Controller
         if (!$check) return $this->response();
 
         #check if using existing card
-        if($data['cardid']){
+        if(isset($data['cardid'])){
             //return 'fetching card data';
             $card=Card::where('id',$data['cardid'])->first();
         }
@@ -59,6 +59,7 @@ class TaskController extends Controller
         #else verify card and load data.
         $create=Task::create($save);
         $this->successData('message','Transaction has been created. Go to the nearest atm');
+        $this->successData('task',$create);
         return $this->response();
     }
 

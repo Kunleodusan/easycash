@@ -44,7 +44,7 @@
 					<div class="container">
 						<div class="row">
 							<!--<pre>{{dashboard | json}}</pre>-->
-							<div class="col-sm-9">
+							<div class="col-sm-8">
 							<div class="row">
 								<div class="col-xs-4 col-sm-2">
 									<img src="images/icons/avatar.jpg" alt="" class="img-circle img-responsive" style="border: 2px solid #fff;padding:5px">
@@ -56,8 +56,11 @@
 							</div>
 
 							</div>
-							<div class="col-sm-3 hidden-xs"><br>
-								<a href="" class="button button-white button-light">Quick Action</a>
+							<div class="col-sm-4">
+								<div class="well well-status center" ng-repeat="pending in dashboard.pending">
+									<h4 class="nomargin text-uppercase font-body t300 ls1">Pending {{pending.action}} <a href="javascript:" ng-click="cancelTxn(pending)" class="pull-right t600 small">x</a></h4>
+									<h1 class="nomargin"><s>N</s>{{pending.amount | currency:' '}}</h1>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -67,43 +70,14 @@
 				<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
-						<a href="javascript:" data-target="#myModal1" data-lightbox="inline"><div class="feature-box fbox-center fbox-bg fbox-light fbox-effect">
+						<a href="javascript:" data-toggle="modal" data-target="#myModal"><div class="feature-box fbox-center fbox-bg fbox-light fbox-effect">
 							<div class="fbox-icon">
-								<i class="i-alt icon-trophy"></i>
+								<i class="fa fa-credit-card"></i>
 							</div>
 							<h3>Withdrawal<span class="subtitle">Perform this action now</span></h3>
 							</div></a>
 
-						<!--Modal 	-->
-						<div class="modal1 mfp-hide" id="myModal1">
-							<div class="block divcenter" style="background-color: #FFF; max-width: 500px;">
-								<div class="center" style="padding: 50px;">
-									<h3>Enter Details of Transcation</h3>
-									<div class="form-group">
-										<label for="">Amount</label>
-										<input type="number" class="form-control" placeholder="E.g 10,000">
-									</div>
-									<div class="form-group">
-										<label for="">Type of Account</label>
-										<select name="" id="" class="form-control">
-											<option value="">Savings</option>
-											<option value="">Current</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<label for="">You want a reciept?</label>
-										<select name="" id="" class="form-control">
-											<option value="">Yes</option>
-											<option value="">No</option>
-										</select>
-									</div>
 
-								</div>
-								<div class="section center nomargin" style="padding: 30px;">
-									<a href="#" class="button" onClick="$.magnificPopup.close();return false;">Submit</a>
-								</div>
-							</div>
-						</div>
 
 						<br>
 						<h4>Saved Cards</h4>
@@ -143,13 +117,6 @@
 					</div>
 				</div>
 					</div>
-
-
-
-
-
-
-
 				</div>
 
 
@@ -170,7 +137,7 @@
 					<div class="container clearfix">
 
 						<div class="col_half">
-							<img src="images/footer-logo.png" alt="Footer Logo" class="footer-logo">
+							<img src="images/footer-logo.png" alt="Footer Logo" height="60px" class="footer-logo">
 
 							Copyrights &copy; 2014 All Rights Reserved by Canvas Inc.
 						</div>
@@ -227,3 +194,67 @@
 				</div><!-- #copyrights end -->
 
 			</footer><!-- #footer end -->
+
+<!--Modal 	--><!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-body">
+			<div class="modal-content">
+				<div class="block divcenter" style="background-color: #FFF;">
+					<div class="center" style="padding: 50px;">
+						<h3>Enter Details of Transcation</h3>
+						<div class="form-group">
+							<label for="amount">Amount</label>
+							<input type="text" ui-number-mask id="amount" class="form-control" ng-model="task.amount" placeholder="E.g 10,000">
+						</div>
+
+						<div class="form-group" ng-if="!selectCard">
+							<label for="cardno">Card Number</label>
+							<input type="number" class="form-control" id="cardno" ng-model="task.cardno"  placeholder="4084 0840 8408 4081">
+<!--
+							<div>
+								<label for="saveCard">Save Card?</label>
+								<input type="checkbox" id="saveCard" ng-model="saveCard">
+							</div>
+-->
+							<br>
+							<div class="switch">
+								<h5 class="text-uppercase" style="display: inline-block;margin: 0;vertical-align: top;line-height: 30px;margin-right: 15px;">Save Card</h5>
+								<input id="saveCard" class="switch-toggle switch-toggle-flat" type="checkbox" ng-model="task.saveCard">
+								<label for="saveCard" style="display:inline-block"></label>
+							</div>
+							
+						</div>
+
+						<div class="form-group" ng-if="selectCard">
+							<label for="card">Select Card</label>
+							<select name="card" id="card"  ng-model="task.cardid"  class="form-control">
+								<option value="{{card.id}}" ng-repeat="card in dashboard.cards">
+									{{card.card_detail.message.bank.name}} {{card.card_detail.message.scheme}} ({{card.card_detail.message.number.prefix}}** **** ****)
+								</option>
+							</select>
+						</div>
+<!--
+						<div class="form-group">
+							<label for="selectCard">Select A Card</label>
+							<input type="checkbox" id="selectCard" ng-model="selectCard">
+						</div>
+-->
+						
+						<hr>
+
+						<div class="switch form-group">
+							<h5 class="text-uppercase" style="display: inline-block;margin: 0;vertical-align: top;line-height: 30px;margin-right: 15px;">Select Card</h5>
+							<input id="selectCard" class="switch-toggle switch-toggle-flat" type="checkbox" ng-model="selectCard"> 
+							<label for="selectCard" style="display:inline-block"></label>
+						</div>
+
+					</div>
+					<div class="section center nomargin" style="padding: 30px;">
+						<button type="button" class="button" ng-click="createTask()">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
