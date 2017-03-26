@@ -36,13 +36,56 @@ app.controller('DashboardController',['$rootScope','$scope','$state','authServic
 
         });
     };
-    $scope.createTask=function ($pending) {
+    $scope.createTask=function () {
+        var $pending=$scope.task;
+        var $data={};
         console.log($pending);
+        /*1. check if user selected card/entered card.*/
+        if($scope.selectCard){
+            $data.amount=$pending.amount;
+            $data.cardid=$pending.cardid;
+            $data.action='WITHDRAWAL';
+            $data.customer_id=$scope.dashboard.customer.id;
+
+        }
+        else{
+            $data.amount=$pending.amount;
+            $data.cardno=$pending.cardno;
+            $data.action='WITHDRAWAL';
+            $data.customer_id=$scope.dashboard.customer.id;
+        }
+
+        /*2. check if user wants to save card*/
+        if($pending.saveCard){
+            $scope.notifyAlert('Saving card');
+            var $cardData={
+                customer_id:$scope.dashboard.customer.id,
+                save:1,
+                cardno:$pending.cardno
+            };
+            DashboardService.saveCard($cardData).then(function (success) {
+                console.log(success);
+                $scope.successAlert(success.data.data.message);
+
+                $scope.dashboard.cards.push(success.data.data.card);
+                //$scope.removeItem($scope.dashboard.pending,$pending);
+
+            },function (error) {
+
+                $scope.notifyAlert(error.data.error);
+                $scope.notifyAlert('something went wrong');
+
+            });
+        }
+        /*3. save card.*/
+
+        /*4. Make request.*/
       $scope.notifyAlert('Creating transaction');
 
-        DashboardService.createTransaction($pending).then(function (success) {
-
-            $scope.successAlert('Transaction created');
+        DashboardService.createTransaction($data).then(function (success) {
+            console.log(success);
+            $scope.successAlert(success.data.data.message);
+            $scope.dashboard.pending.push(success.data.data.task);
             //$scope.removeItem($scope.dashboard.pending,$pending);
 
         },function (error) {
