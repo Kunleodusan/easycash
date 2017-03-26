@@ -35,6 +35,19 @@ app.controller('DashboardController',['$rootScope','$scope','$state','authServic
 
         });
     };
+    $scope.cancelTxn=function ($pending) {
+      $scope.notifyAlert('Canceling transaction');
+        DashboardService.cancelTransaction($pending.id).then(function (success) {
+
+            $scope.errorAlert('Transaction Canceled');
+            $scope.removeItem($scope.dashboard.pending,$pending);
+
+        },function (error) {
+
+            $scope.notifyAlert('something went wrong');
+
+        });
+    };
 
     $scope.logout=function () {
         authService.logout();
