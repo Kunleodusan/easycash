@@ -1,0 +1,95 @@
+
+<!-- Content
+============================================= -->
+<section id="content" style="background:#555; min-height:100vh">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+            <h1 class="text-center nobottommargin">
+                <img src="images/logo-dark.png" alt="" width="300px">
+            </h1>
+
+            <div class="tabs divcenter nobottommargin clearfix" id="tab-login-register" style="max-width: 500px;">
+
+                <ul class="tab-nav tab-nav2 center clearfix">
+                    <li class="inline-block"><a href="javascript:" ng-click="toggleDiv('login')">Login</a></li>
+                    <li class="inline-block"><a href="javascript:"  ng-click="toggleDiv('register')">Register</a></li>
+                </ul>
+
+                <div class="tab-container">
+
+                    <div class="tab-content clearfix" id="tab-login" ng-if="login">
+                        <div class="panel panel-default nobottommargin">
+                            <div class="panel-body" style="padding: 40px;">
+                                <form id="login-form" name="login-form" class="nobottommargin" action="#" method="post">
+
+                                    <h3>Login to your Account</h3>
+
+                                    <div class="col_full">
+                                        <label for="login-form-username">Email:</label>
+                                        <input type="text" id="login-form-username" name="login-form-username" ng-model="userLogin.email" value="" class="form-control" />
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label for="login-form-password">Password:</label>
+                                        <input type="password" id="login-form-password" name="login-form-password" ng-model="userLogin.password" value="" class="form-control" />
+                                    </div>
+
+                                    <div class="col_full nobottommargin">
+                                        <button class="button button-3d button-black nomargin" ng-click="loginReq(userLogin)" type="button" id="login-form-submit" name="login-form-submit">Login</button>
+                                        <a href="#" class="fright">Forgot Password?</a>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content clearfix" id="tab-register" ng-if="register">
+                        <div class="panel panel-default nobottommargin">
+                            <div class="panel-body" style="padding: 40px;">
+                                <h3>Register for an Account</h3>
+
+                                <form id="register-form" name="register-form" class="nobottommargin" action="#" method="post">
+
+                                    <div class="col_full">
+                                        <label for="register-form-name">Name:</label>
+                                        <input type="text" id="register-form-name" name="register-form-name" ng-model="userRegister.name" class="form-control" />
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label for="register-form-email">Email Address:</label>
+                                        <input type="text" id="register-form-email" name="register-form-email" ng-model="userRegister.email" class="form-control" />
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label for="register-form-phone">Phone:</label>
+                                        <input type="text" id="register-form-phone" name="register-form-phone"  ng-model="userRegister.phone" class="form-control" />
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label for="register-form-password">Choose Password:</label>
+                                        <input type="password" id="register-form-password" name="register-form-password"  ng-model="userRegister.password" class="form-control" />
+                                    </div>
+
+                                    <div class="col_full nobottommargin">
+                                        <button class="button button-3d button-black nomargin"
+                                            id="register-form-submit" type="button"
+                                            name="register-form-submit" ng-click="registerReq(userRegister)">Register Now</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
