@@ -13542,6 +13542,26 @@ body:not(.no-transition) #wrapper,
 .retina-logo img{
 	height: 60px !important;
 }
+.well-status{
+	border: 0;
+	padding: 0 0 10px;
+	border-radius: 0;
+	background: rgba(0,0,0,0.2);
+}
+.well-status h4{
+	background: rgba(0,0,0,0.1);
+	color: #fff;
+	padding: 5px 10px;
+}
+.well-status a{
+	color: #fff;
+	cursor: pointer;
+	line-height: 27px;
+}
+.well-status h1{
+	color: #fff;
+	padding: 5px 0 0;
+}
 @media (max-width: 768px){
 	#logo{
 		height: auto !important;
@@ -13555,4 +13575,12 @@ body:not(.no-transition) #wrapper,
 	.sticky-responsive-menu #header{
 		min-height: auto !important;
 	}
+}
+
+#primary-menu .button{
+	margin: 10px 0;
+}
+
+header.dark  .button{
+	margin-top: 30px !important;
 }
