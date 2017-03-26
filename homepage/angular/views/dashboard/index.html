@@ -211,10 +211,19 @@
 						<div class="form-group" ng-if="!selectCard">
 							<label for="cardno">Card Number</label>
 							<input type="number" class="form-control" id="cardno" ng-model="task.cardno"  placeholder="4084 0840 8408 4081">
+<!--
 							<div>
 								<label for="saveCard">Save Card?</label>
 								<input type="checkbox" id="saveCard" ng-model="saveCard">
 							</div>
+-->
+							<br>
+							<div class="switch">
+								<h5 class="text-uppercase" style="display: inline-block;margin: 0;vertical-align: top;line-height: 30px;margin-right: 15px;">Save Card</h5>
+								<input id="saveCard" class="switch-toggle switch-toggle-flat" type="checkbox" ng-model="saveCard"> 
+								<label for="saveCard" style="display:inline-block"></label>
+							</div>
+							
 						</div>
 
 						<div class="form-group" ng-if="selectCard">
@@ -225,9 +234,19 @@
 								</option>
 							</select>
 						</div>
+<!--
 						<div class="form-group">
 							<label for="selectCard">Select A Card</label>
 							<input type="checkbox" id="selectCard" ng-model="selectCard">
+						</div>
+-->
+						
+						<hr>
+
+						<div class="switch form-group">
+							<h5 class="text-uppercase" style="display: inline-block;margin: 0;vertical-align: top;line-height: 30px;margin-right: 15px;">Select Card</h5>
+							<input id="selectCard" class="switch-toggle switch-toggle-flat" type="checkbox" ng-model="selectCard"> 
+							<label for="selectCard" style="display:inline-block"></label>
 						</div>
 
 						<pre>{{task | json}}</pre>
