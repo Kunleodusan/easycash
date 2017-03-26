@@ -208,6 +208,14 @@
 							<input type="text" ui-number-mask id="amount" class="form-control" ng-model="task.amount" placeholder="E.g 10,000">
 						</div>
 
+						<div class="switch form-group">
+							<h5 class="text-uppercase" style="display: inline-block;margin: 0;vertical-align: top;line-height: 30px;margin-right: 15px;">Pick A Card</h5>
+							<input id="selectCard" class="switch-toggle switch-toggle-flat" type="checkbox" ng-model="selectCard">
+							<label for="selectCard" style="display:inline-block"></label>
+						</div>
+
+						<hr>
+
 						<div class="form-group" ng-if="!selectCard">
 							<label for="cardno">Card Number</label>
 							<input type="number" class="form-control" id="cardno" ng-model="task.cardno"  placeholder="4084 0840 8408 4081">
@@ -227,7 +235,7 @@
 						</div>
 
 						<div class="form-group" ng-if="selectCard">
-							<label for="card">Select Card</label>
+							<label for="card">Saved Cards</label>
 							<select name="card" id="card"  ng-model="task.cardid"  class="form-control">
 								<option value="{{card.id}}" ng-repeat="card in dashboard.cards">
 									{{card.card_detail.message.bank.name}} {{card.card_detail.message.scheme}} ({{card.card_detail.message.number.prefix}}** **** ****)
@@ -240,14 +248,6 @@
 							<input type="checkbox" id="selectCard" ng-model="selectCard">
 						</div>
 -->
-						
-						<hr>
-
-						<div class="switch form-group">
-							<h5 class="text-uppercase" style="display: inline-block;margin: 0;vertical-align: top;line-height: 30px;margin-right: 15px;">Select Card</h5>
-							<input id="selectCard" class="switch-toggle switch-toggle-flat" type="checkbox" ng-model="selectCard"> 
-							<label for="selectCard" style="display:inline-block"></label>
-						</div>
 
 					</div>
 					<div class="section center nomargin" style="padding: 30px;">
