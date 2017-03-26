@@ -36,6 +36,7 @@ class CardController extends Controller
                 $data['card_detail']=json_encode($cardData);
                 //return $data;
                 $card=Card::create($data);
+                $card['card_detail']=$cardData;
                 $this->successData('card',$card);
             }
             $message=$this->generateMessage($cardData,$request->save);
