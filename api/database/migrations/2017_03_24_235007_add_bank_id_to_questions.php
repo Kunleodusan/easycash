@@ -13,7 +13,7 @@ class AddBankIdToQuestions extends Migration
      */
     public function up()
     {
-        Schema::table('banks', function (Blueprint $table) {
+        Schema::table('questions', function (Blueprint $table) {
             $table->integer('bank_id');
         });
     }
@@ -23,9 +23,10 @@ class AddBankIdToQuestions extends Migration
      *
      * @return void
      */
+
     public function down()
     {
-        Schema::table('banks', function (Blueprint $table) {
+        Schema::table('questions', function (Blueprint $table) {
             $table->dropColumn('bank_id');
         });
     }

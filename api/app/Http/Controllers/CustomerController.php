@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Card;
 use App\Customer;
+use App\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -33,7 +35,11 @@ class CustomerController extends Controller
             $user=collect($user)->except(['password']);
             $this->successData('customer',$user);
             $oauth=$this->generateToken($request,$user,Customer::ROLE);
-            $this->successData('oauth',$oauth);
+            $this->successData('auth',$oauth);
+
+            $this->successData('cards',$this->cards($user['id']));
+            $this->successData('pending',$this->pending($user['id']));
+            $this->successData('transactions',$this->transactions($user['id']));
             /*@todo generate dashboard & welcome email.*/
             //$this->successData('dashboard',HomeController::getDashboard($user['id'],Student::ROLE));
             //Mail::to($user['email'])->send(new RegistrationComplete());
@@ -58,6 +64,9 @@ class CustomerController extends Controller
         $user=Customer::where([Customer::EMAIL=>$request->email])->orWhere([Customer::PHONE=>$request->phone])->first();
         if (Hash::check($data['password'], $user['password'])) {
             $this->successData('customer',$user);
+            $this->successData('cards',$this->cards($user['id']));
+            $this->successData('pending',$this->pending($user['id']));
+            $this->successData('transactions',$this->transactions($user['id']));
             $this->successData('auth',$this->generateToken($request, $user,Customer::ROLE));
         }
         else{
@@ -126,4 +135,43 @@ class CustomerController extends Controller
         /*Return Response*/
         return $this->response();
     }
+
+    private function cards($id)
+    {
+        $cards=Card::where('customer_id',$id)->get();
+
+        $cards=$this->jsonUnstring($cards);
+        return $cards;
+    }
+    private function transactions($id)
+    {
+        $completed=Task::where([
+            'customer_id'=>$id,
+            'status'=>1
+        ])->limit(5)->get();
+        $completed=$this->jsonUnstring($completed);
+        return $completed;
+    }
+    private function pending($id)
+    {
+        $pending=Task::where([
+            'customer_id'=>$id,
+            'status'=>0
+        ])->get();
+        $pending=$this->jsonUnstring($pending);
+        return $pending;
+    }
+
+    private function jsonUnstring($data)
+    {
+
+        if(count($data)>0){
+            foreach ($data as &$card){
+                $card['card_detail']=json_decode($card['card_detail']);
+            }
+        }
+        return $data;
+    }
+
+
 }

@@ -12,7 +12,9 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'EasyCash',
+    'flutterwave_api_key'=>'tk_XpPyzjt6Jh4YdrQg5Hsa',
+    'flutterwave' => 'http://staging1flutterwave.co:8080/pwc/rest/',
 
     /*
     |--------------------------------------------------------------------------

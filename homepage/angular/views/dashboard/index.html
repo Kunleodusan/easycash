@@ -1,0 +1,229 @@
+<!-- Header============================================= -->
+			<header id="header" class="full-header static-sticky">
+
+				<div id="header-wrap">
+
+					<div class="container clearfix">
+
+						<div id="primary-menu-trigger"><i ng-click="toggleNav()" class="icon-reorder"></i></div>
+
+						<!-- Logo
+============================================= -->
+						<div id="logo">
+							<a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Canvas Logo"></a>
+							<a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+						</div><!-- #logo end -->
+
+						<!-- Primary Navigation
+============================================= -->
+						<nav id="primary-menu" class="dark">
+
+							<ul class="{{nav}}" data-easing="easeInOutExpo" data-speed="1500">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="javascript:" data-href="#features"><div>Dashboard</div></a></li>
+								<li><a ui-sref="auth" data-href="#features"><div>Logout</div></a></li>
+							</ul>
+
+						</nav><!-- #primary-menu end -->
+
+					</div>
+
+				</div>
+
+			</header><!-- #header end -->
+
+
+
+			<!-- Content
+============================================= -->
+			<section id="content">
+
+				<div class="content-wrap nopadding">
+
+				<div class="section nomargin" style="background-color: #1abc9c;padding: 25px 0">
+					<div class="container">
+						<div class="row">
+							<!--<pre>{{dashboard | json}}</pre>-->
+							<div class="col-sm-9">
+							<div class="row">
+								<div class="col-xs-4 col-sm-2">
+									<img src="images/icons/avatar.jpg" alt="" class="img-circle img-responsive" style="border: 2px solid #fff;padding:5px">
+								</div>
+								<div class="col-xs-8 col-sm-10 dark">
+									<h3 class="nomargin t500 ls1">Hello again, {{dashboard.customer.name}}</h3>
+									<p class="lead">What transcations would you like to perform today</p>
+								</div>
+							</div>
+
+							</div>
+							<div class="col-sm-3 hidden-xs"><br>
+								<a href="" class="button button-white button-light">Quick Action</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="section nomargin">
+				<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<a href="#myModal1" data-lightbox="inline"><div class="feature-box fbox-center fbox-bg fbox-light fbox-effect">
+							<div class="fbox-icon">
+								<i class="i-alt icon-trophy"></i>
+							</div>
+							<h3>Withdrawal<span class="subtitle">Perform this action now</span></h3>
+							</div></a>
+
+						<!--Modal 	-->
+						<div class="modal1 mfp-hide" id="myModal1">
+							<div class="block divcenter" style="background-color: #FFF; max-width: 500px;">
+								<div class="center" style="padding: 50px;">
+									<h3>Enter Details of Transcation</h3>
+									<div class="form-group">
+										<label for="">Amount</label>
+										<input type="number" class="form-control" placeholder="E.g 10,000">
+									</div>
+									<div class="form-group">
+										<label for="">Type of Account</label>
+										<select name="" id="" class="form-control">
+											<option value="">Savings</option>
+											<option value="">Current</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="">You want a reciept?</label>
+										<select name="" id="" class="form-control">
+											<option value="">Yes</option>
+											<option value="">No</option>
+										</select>
+									</div>
+
+								</div>
+								<div class="section center nomargin" style="padding: 30px;">
+									<a href="#" class="button" onClick="$.magnificPopup.close();return false;">Submit</a>
+								</div>
+							</div>
+						</div>
+
+						<br>
+						<h4>Saved Cards</h4>
+
+						<div class="accordion accordion-bg clearfix">
+
+							<div ng-repeat="card in dashboard.cards">
+								<div class="acctitle">
+									<i class="acc-closed icon-remove-circle" ng-click="deleteCard(card.id)"></i>
+									{{card.card_detail.message.bank.name}} {{card.card_detail.message.scheme}} ({{card.card_detail.message.number.prefix}}** **** ****)
+								</div>
+								<div class="acc_content clearfix">
+									<ul class="iconlist iconlist-color nobottommargin">
+										<li><i class="icon-ok"></i>{{card.card_detail.message.type}}</li>
+										<li><i class="icon-ok"></i>{{card.card_detail.message.bank.phone}}</li>
+										<li><i class="icon-ok"></i>{{card.card_detail.message.country.name}}</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="col-sm-8">
+						<div class="panel panel-green">
+							<!-- Default panel contents -->
+							<div class="panel-heading"><h4 class="panel-title">Last Transactions</h4></div>
+							<!-- List group -->
+							<ul class="list-group">
+								<li class="list-group-item" ng-repeat="transaction in dashboard.transactions">
+									<a href="javascript:">Cras justo odio</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+					</div>
+				</div>
+					</div>
+
+
+
+
+
+
+
+				</div>
+
+
+
+
+
+
+			</section><!-- #content end -->
+
+			<!-- Footer
+============================================= -->
+			<footer id="footer" class="dark">
+
+				<!-- Copyrights
+============================================= -->
+				<div id="copyrights">
+
+					<div class="container clearfix">
+
+						<div class="col_half">
+							<img src="images/footer-logo.png" alt="Footer Logo" class="footer-logo">
+
+							Copyrights &copy; 2014 All Rights Reserved by Canvas Inc.
+						</div>
+
+						<div class="col_half col_last tright">
+							<div class="copyrights-menu copyright-links fright clearfix">
+								<a href="#">Home</a>/<a href="#">About</a>/<a href="#">Features</a>/<a href="#">Portfolio</a>/<a href="#">FAQs</a>/<a href="#">Contact</a>
+							</div>
+							<div class="fright clearfix">
+								<a href="#" class="social-icon si-small si-borderless nobottommargin si-facebook">
+									<i class="icon-facebook"></i>
+									<i class="icon-facebook"></i>
+								</a>
+
+								<a href="#" class="social-icon si-small si-borderless nobottommargin si-twitter">
+									<i class="icon-twitter"></i>
+									<i class="icon-twitter"></i>
+								</a>
+
+								<a href="#" class="social-icon si-small si-borderless nobottommargin si-gplus">
+									<i class="icon-gplus"></i>
+									<i class="icon-gplus"></i>
+								</a>
+
+								<a href="#" class="social-icon si-small si-borderless nobottommargin si-pinterest">
+									<i class="icon-pinterest"></i>
+									<i class="icon-pinterest"></i>
+								</a>
+
+								<a href="#" class="social-icon si-small si-borderless nobottommargin si-vimeo">
+									<i class="icon-vimeo"></i>
+									<i class="icon-vimeo"></i>
+								</a>
+
+								<a href="#" class="social-icon si-small si-borderless nobottommargin si-github">
+									<i class="icon-github"></i>
+									<i class="icon-github"></i>
+								</a>
+
+								<a href="#" class="social-icon si-small si-borderless nobottommargin si-yahoo">
+									<i class="icon-yahoo"></i>
+									<i class="icon-yahoo"></i>
+								</a>
+
+								<a href="#" class="social-icon si-small si-borderless nobottommargin si-linkedin">
+									<i class="icon-linkedin"></i>
+									<i class="icon-linkedin"></i>
+								</a>
+							</div>
+						</div>
+
+					</div>
+
+				</div><!-- #copyrights end -->
+
+			</footer><!-- #footer end -->
