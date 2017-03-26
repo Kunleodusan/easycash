@@ -2,10 +2,14 @@
 Automating your atm withdrawals.
 Easycash as a solution seeks to drastically reduce the problems of queues at ATM outlets by making it possible to make a pre request of an atm transaction before arriving at the ATM. The transaction is only verified by entering entering your pin and cash is dispensed.
 
+Technologies.
+The technologies used to build this solution are as follows:
+1. Php for the backend web service api.
+2. Html, Bootstrap, AngularJS for the frontend web pages.
+3. Android 7.1.1 as compile SDK compactible with a minimum of Android 6.0 for the Android App.
 
-
+Respository Navigation Guide
 There are 4 folders that comprise of the total source code each representing an aspect of EasyCash build
-
 1. EasyCash folder contains all the android source code.
 2. api-docs folder contains the source code for online documentation of our web apis
 3. api folder contains the api source code itself.
