@@ -2,6 +2,10 @@
 Automating your atm withdrawals.
 Easycash as a solution seeks to drastically reduce the problems of queues at ATM outlets by making it possible to make a pre request of an atm transaction before arriving at the ATM. The transaction is only verified by entering entering your pin and cash is dispensed.
 
+Check out our webservice at http://easycash.recodenigeria.tk/
+or Download our android app at 
+Enjoy!
+
 Technologies.
 The technologies used to build this solution are as follows:
 1. Php for the backend web service api.
