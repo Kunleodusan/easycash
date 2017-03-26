@@ -7,6 +7,7 @@ app.controller('DashboardController',['$rootScope','$scope','$state','authServic
     $scope.dashboard=authService.getUser();
 
     $scope.login=true;
+    $scope.task={};
     $scope.register=false;
 
     $scope.nav='one-page-menu';
@@ -35,6 +36,23 @@ app.controller('DashboardController',['$rootScope','$scope','$state','authServic
 
         });
     };
+    $scope.createTask=function ($pending) {
+        console.log($pending);
+      $scope.notifyAlert('Creating transaction');
+
+        DashboardService.createTransaction($pending).then(function (success) {
+
+            $scope.successAlert('Transaction created');
+            //$scope.removeItem($scope.dashboard.pending,$pending);
+
+        },function (error) {
+
+            $scope.notifyAlert(error.data.error);
+            $scope.notifyAlert('something went wrong');
+
+        });
+    };
+
     $scope.cancelTxn=function ($pending) {
       $scope.notifyAlert('Canceling transaction');
         DashboardService.cancelTransaction($pending.id).then(function (success) {
